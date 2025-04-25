@@ -18,11 +18,7 @@ export default defineConfig({
       }
     }
   },
-  plugins: [
-    react({
-      plugins: [['@swc/plugin-react-refresh', {}]]
-    })
-  ],
+  plugins: [react()],
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),
