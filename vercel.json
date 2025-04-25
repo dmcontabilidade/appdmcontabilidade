@@ -10,8 +10,20 @@
       "source": "/(.*)",
       "headers": [
         {
+          "key": "Access-Control-Allow-Origin",
+          "value": "*"
+        },
+        {
+          "key": "Access-Control-Allow-Methods",
+          "value": "GET, POST, PUT, DELETE, OPTIONS"
+        },
+        {
+          "key": "Access-Control-Allow-Headers",
+          "value": "X-Requested-With, Content-Type, Accept"
+        },
+        {
           "key": "Content-Security-Policy",
-          "value": "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' data:; connect-src 'self' https://*.vercel.app https://*.vercel.com"
+          "value": "default-src 'self' *.vercel.app vercel.com *.vercel.com; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline' fonts.googleapis.com; img-src 'self' data: blob: *; font-src 'self' fonts.gstatic.com data:; connect-src 'self' *.vercel.app vercel.com *.vercel.com"
         },
         {
           "key": "X-Content-Type-Options",
