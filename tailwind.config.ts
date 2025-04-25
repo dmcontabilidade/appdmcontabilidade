@@ -3,6 +3,7 @@ import type { Config } from "tailwindcss";
 const config: Config = {
 	content: [
 		"./src/**/*.{js,ts,jsx,tsx}",
+		"./index.html"
 	],
 	theme: {
 		container: {
@@ -80,28 +81,16 @@ const config: Config = {
 			},
 			keyframes: {
 				'accordion-down': {
-					from: {
-						height: '0'
-					},
-					to: {
-						height: 'var(--radix-accordion-content-height)'
-					}
+					from: { height: '0' },
+					to: { height: 'var(--radix-accordion-content-height)' }
 				},
 				'accordion-up': {
-					from: {
-						height: 'var(--radix-accordion-content-height)'
-					},
-					to: {
-						height: '0'
-					}
+					from: { height: 'var(--radix-accordion-content-height)' },
+					to: { height: '0' }
 				},
 				'fade-in': {
-					from: {
-						opacity: '0'
-					},
-					to: {
-						opacity: '1'
-					}
+					from: { opacity: '0' },
+					to: { opacity: '1' }
 				},
 				'fade-up': {
 					from: {
@@ -133,22 +122,10 @@ const config: Config = {
 			}
 		}
 	},
-	plugins: [],
+	plugins: [require("tailwindcss-animate")],
 	future: {
 		hoverOnlyWhenSupported: true,
-	},
-	corePlugins: {
-		preflight: true,
-	},
-	purge: {
-		enabled: true,
-		content: [
-			"./src/**/*.{js,ts,jsx,tsx}",
-		],
-		options: {
-			safelist: ['dark'],
-		},
-	},
+	}
 } satisfies Config;
 
 export default config;
