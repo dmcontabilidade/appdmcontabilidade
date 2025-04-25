@@ -8,10 +8,20 @@ export default defineConfig({
     port: 8080,
     hmr: {
       overlay: false // Desativa o overlay de erros para melhor performance
+    },
+    proxy: {
+      '/api': {
+        target: 'https://api.vercel.com',
+        changeOrigin: true,
+        secure: false,
+        rewrite: (path) => path.replace(/^\/api/, '')
+      }
     }
   },
   plugins: [
-    react()
+    react({
+      plugins: [['@swc/plugin-react-refresh', {}]]
+    })
   ],
   resolve: {
     alias: {
