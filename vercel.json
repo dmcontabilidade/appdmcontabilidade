@@ -23,7 +23,7 @@
         },
         {
           "key": "Content-Security-Policy",
-          "value": "default-src 'self' *.vercel.app vercel.com *.vercel.com; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline' fonts.googleapis.com; img-src 'self' data: blob: *; font-src 'self' fonts.gstatic.com data:; connect-src 'self' *.vercel.app vercel.com *.vercel.com"
+          "value": "default-src 'self' *.vercel.app vercel.com *.vercel.com; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: blob: *; connect-src 'self' *.vercel.app vercel.com *.vercel.com"
         },
         {
           "key": "X-Content-Type-Options",
