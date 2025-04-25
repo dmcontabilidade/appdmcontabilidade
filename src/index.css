@@ -1,0 +1,93 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 33% 99%;
+    --foreground: 350 47% 11%;
+    
+    --card: 0 0% 100%;
+    --card-foreground: 350 47% 11%;
+    
+    --popover: 0 0% 100%;
+    --popover-foreground: 350 47% 11%;
+    
+    --primary: 350 73% 28%;
+    --primary-foreground: 46 98% 58%;
+    
+    --secondary: 46 96% 66%;
+    --secondary-foreground: 350 47% 11%;
+    
+    --muted: 0 40% 96%;
+    --muted-foreground: 350 16% 47%;
+    
+    --accent: 46 96% 90%;
+    --accent-foreground: 350 47% 11%;
+    
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 40% 98%;
+    
+    --border: 350 32% 91%;
+    --input: 350 32% 91%;
+    --ring: 46 84% 48%;
+    
+    --radius: 0.75rem;
+  }
+  
+  * {
+    @apply border-border;
+    box-sizing: border-box;
+  }
+  
+  body {
+    @apply bg-background text-foreground antialiased min-h-screen max-w-[100vw] overflow-x-hidden;
+    font-family: 'Inter', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  /* Glass effect components */
+  .glass {
+    @apply bg-white/70 backdrop-blur-md border border-white/20;
+  }
+  
+  /* Smooth transitions */
+  .page-transition {
+    @apply transition-all duration-300 ease-in-out;
+  }
+  
+  .hover-lift {
+    @apply transition-transform duration-200 hover:-translate-y-0.5;
+  }
+  
+  /* Micro-animations */
+  @keyframes subtle-pulse {
+    0%, 100% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.02);
+    }
+  }
+  
+  .pulse-on-hover:hover {
+    animation: subtle-pulse 2s infinite;
+  }
+}
+
+@layer components {
+  .glass {
+    @apply bg-white/70 backdrop-blur-md border border-white/20;
+  }
+
+  .page-transition {
+    @apply transition-all duration-300 ease-in-out;
+  }
+
+  .hover-lift {
+    @apply transition-transform duration-200 hover:-translate-y-0.5;
+  }
+}
