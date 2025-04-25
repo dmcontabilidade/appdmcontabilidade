@@ -4,20 +4,6 @@ import path from "path";
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  server: {
-    port: 8080,
-    hmr: {
-      overlay: false // Desativa o overlay de erros para melhor performance
-    },
-    proxy: {
-      '/api': {
-        target: 'https://api.vercel.com',
-        changeOrigin: true,
-        secure: false,
-        rewrite: (path) => path.replace(/^\/api/, '')
-      }
-    }
-  },
   plugins: [react()],
   resolve: {
     alias: {
@@ -25,26 +11,18 @@ export default defineConfig({
     },
   },
   build: {
-    target: 'esnext',
-    minify: 'esbuild',
-    sourcemap: false,
+    outDir: 'dist',
+    emptyOutDir: true,
     rollupOptions: {
       output: {
-        manualChunks(id) {
-          if (id.includes('node_modules')) {
-            if (id.includes('react')) {
-              return 'react-vendor';
-            }
-            if (id.includes('@radix-ui')) {
-              return 'ui-vendor';
-            }
-            return 'vendor';
-          }
+        manualChunks: {
+          'react-vendor': ['react', 'react-dom', 'react-router-dom'],
+          'ui-vendor': ['@radix-ui/react-alert-dialog', '@radix-ui/react-dialog', '@radix-ui/react-popover']
         }
       }
     }
   },
-  optimizeDeps: {
-    include: ['react', 'react-dom', 'react-router-dom']
+  server: {
+    port: 8080
   }
 });
